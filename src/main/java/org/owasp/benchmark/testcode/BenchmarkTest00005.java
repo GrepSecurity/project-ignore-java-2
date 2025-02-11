@@ -103,7 +103,7 @@ public class BenchmarkTest00005 extends HttpServlet {
                                             .esapi
                                             .ESAPI
                                             .encoder()
-                                            .encodeForHTML(new String(input))
+                                            .encodeForHTML(param)
                                     + "' encrypted and stored<br/>");
 
         } catch (java.security.NoSuchAlgorithmException
