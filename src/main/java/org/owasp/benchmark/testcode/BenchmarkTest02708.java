@@ -72,7 +72,7 @@ public class BenchmarkTest02708 extends HttpServlet {
         }
 
         if (foundUser) {
-            response.getWriter().println("Welcome back: " + user + "<br/>");
+            response.getWriter().println("Welcome back: " + org.springframework.web.util.HtmlUtils.htmlEscape(user) + "<br/>");
 
         } else {
             javax.servlet.http.Cookie rememberMe =
@@ -85,11 +85,11 @@ public class BenchmarkTest02708 extends HttpServlet {
             response.addCookie(rememberMe);
             response.getWriter()
                     .println(
-                            user
+                            org.springframework.web.util.HtmlUtils.htmlEscape(user)
                                     + " has been remembered with cookie: "
-                                    + rememberMe.getName()
+                                    + org.springframework.web.util.HtmlUtils.htmlEscape(rememberMe.getName())
                                     + " whose value is: "
-                                    + rememberMe.getValue()
+                                    + org.springframework.web.util.HtmlUtils.htmlEscape(rememberMe.getValue())
                                     + "<br/>");
         }
 
