@@ -18,6 +18,7 @@
 package org.owasp.benchmark.testcode;
 
 import java.io.IOException;
+import org.apache.commons.text.StringEscapeUtils;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -75,7 +76,7 @@ public class BenchmarkTest02718 extends HttpServlet {
             }
 
             if (foundUser) {
-                response.getWriter().println("Welcome back: " + user + "<br/>");
+                response.getWriter().println("Welcome back: " + org.apache.commons.text.StringEscapeUtils.escapeHtml4(user) + "<br/>");
             } else {
                 javax.servlet.http.Cookie rememberMe =
                         new javax.servlet.http.Cookie(cookieName, rememberMeKey);
@@ -87,11 +88,11 @@ public class BenchmarkTest02718 extends HttpServlet {
                 response.addCookie(rememberMe);
                 response.getWriter()
                         .println(
-                                user
+                                org.apache.commons.text.StringEscapeUtils.escapeHtml4(user)
                                         + " has been remembered with cookie: "
                                         + rememberMe.getName()
                                         + " whose value is: "
-                                        + rememberMe.getValue()
+                                        + org.apache.commons.text.StringEscapeUtils.escapeHtml4(rememberMe.getValue())
                                         + "<br/>");
             }
         } catch (java.security.NoSuchAlgorithmException e) {
